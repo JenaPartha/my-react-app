@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,9 +24,23 @@ jobs:
       - name: Build
         run: npm run build
 
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
       - name: Deploy to GitHub Pages
-        run: |
-          git config --global user.email "ps4486105@gmail.com"
-          git config --global user.name "JenaPartha"
-          git remote add origin_with_token "https://JenaPartha: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@github.com/JenaPartha/my-react-app.git"
-          git push origin_with_token HEAD:gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
