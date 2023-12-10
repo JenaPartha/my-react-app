@@ -1,6 +1,6 @@
 {
   "name": "my-react-app",
-  "homepage": "https://JenaPartha.github.io/my-react-app",
+  
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -18,7 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -b main -u 'saipartha3@gmail.com' -t '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'"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -37,8 +37,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^6.1.0"
   }
 }
