@@ -25,6 +25,7 @@ jobs:
       run: npm run build
 
     - name: Deploy to GitHub Pages
-      run: npm run deploy
-      env:
-        GH_TOKEN: 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
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          publish_dir: ./build
